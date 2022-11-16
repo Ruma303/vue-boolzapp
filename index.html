@@ -77,15 +77,15 @@
                             </div>
                             <div class="text-profile m-2 d-flex flex-column">
                                 <!-- Nome tizio -->
-                                <span class="name-profile">nome prova</span>
+                                <span class="name-profile">{{user.name}}</span>
                                 <!-- Ultimo messaggio tizio -->
-                                <span class="last-message">ultimo messaggio</span>
+                                <span class="last-message">{{user.messages[1]}</span>
                             </div>
                         </li>
 
                         <li class="profile-div-rt">
                             <!-- inserire la data e orario -->
-                            <div class="last-seen d-flex justify-content-start align-items-start m-0 px-2">30 Feb</div>
+                            <div class="last-seen d-flex justify-content-start align-items-start m-0 px-2">{{user.messages['date']}</div>
                         </li>
                     </ul>
                 </div>
