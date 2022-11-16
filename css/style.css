@@ -116,6 +116,33 @@ main {
     width: 100% ;
     border: none;
 }
+
+/* contatti */
+.contact-profile {
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-profile:hover {
+    background-color: salmon;
+}
+
+/* visited da far funzionare */
+.contact-profile:visited {
+    background-color: rgb(14, 121, 121);
+} 
+
+.last-message,
+.last-seen {
+    color: rgb(191, 194, 197);
+    font-size: .7rem;
+}
+
+.profile-div-rt,
+.last-seen {
+    height: 100%;
+}
+
 /* area messaggi destra */
 
 .main-area {
