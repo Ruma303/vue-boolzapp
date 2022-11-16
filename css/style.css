@@ -16,6 +16,8 @@ ul {
     list-style: none;
 }
 
+
+
 main {
     background-color: rgb(215, 218, 213);
     margin-top: 20vh;
@@ -51,11 +53,6 @@ main {
     border-right: solid 1px rgb(214, 214, 214);
 }
 
-.user-div,
-.avatar-profile{ 
-    height: 100%;
-}
-
 .name-profile {
     font-size: .8rem;
 }
@@ -69,14 +66,35 @@ main {
 
 .fa-circle-notch,
 .fa-message,
-.fa-ellipsis-vertical {
+.fa-ellipsis-vertical,
+.fa-magnifying-glass,
+.fa-paperclip {
     color: rgb(177, 177, 177);
 }
 
 .aside-area-banner {
     background-color: rgb(157, 215, 249);
-    height: calc(100% / 10);
+    height: calc(100% / 12);
 } 
+
+.notification-div-lt i {
+    color: rgb(157, 215, 249);
+    background-color: white;
+    border-radius: 50%;
+    padding: .6rem .5rem;
+    font-size: 1rem;
+    margin-right: .5rem;
+}
+
+
+.notification-div-lt span {
+    font-size: .7rem;
+}
+
+.notification-div-lt a {
+    color: rgb(93, 143, 156);
+    font-size: .7rem;
+}
 
 .aside-area-search {
     background-color: white;
