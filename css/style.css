@@ -1,0 +1,100 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(1, 148, 136);
+    height: 20vh;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1;
+}
+
+ul {
+    list-style: none;
+}
+
+main {
+    background-color: rgb(215, 218, 213);
+    margin-top: 20vh;
+    height: 80vh;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1;
+}
+
+.main-container {
+    bottom: 0; left: 0; right: 0;
+    position: relative;
+    z-index: 2;
+    height: 90vh;
+    margin-top: -20vh;
+}
+
+/* area contatti sinistra */
+
+.aside-area {
+    width: 40%;
+    background-color: white;
+    height: 100%;
+}
+
+.aside-area-header,
+.main-area-header {
+    height: calc(100% / 12);
+}
+
+.aside-area-header {
+    background-color: rgb(234, 234, 234);
+    border-right: solid 1px rgb(214, 214, 214);
+}
+
+.user-div,
+.avatar-profile{ 
+    height: 100%;
+}
+
+.name-profile {
+    font-size: .8rem;
+}
+
+.pic-profile {
+    max-width: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    height: 100%;
+}
+
+.fa-circle-notch,
+.fa-message,
+.fa-ellipsis-vertical {
+    color: rgb(177, 177, 177);
+}
+
+.aside-area-banner {
+    background-color: rgb(157, 215, 249);
+    height: calc(100% / 10);
+} 
+
+.aside-area-search {
+    background-color: white;
+    height: calc(100% / 15);
+} 
+/* area messaggi destra */
+
+.main-area {
+    width: 60%;
+    background-color: aqua;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.main-area-header {
+    background-color: rgb(234, 234, 234);
+    position: absolute;
+    z-index: 3;
+    top: 0; left: 0; right: 0;
+}
