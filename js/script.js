@@ -115,5 +115,10 @@ const app = new Vue ({
             },
         ]
         
-    },
+    }, methods: {
+        changeStatus(i) {
+            this.contacts[i].messages.status = 'received';
+            console.log('mo ce penso che devo scriverci');
+        }
+    }
 });
