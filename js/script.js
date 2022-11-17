@@ -114,13 +114,11 @@ const app = new Vue ({
                 ],
             },
         ], chatInProgress: 0,
-        
+        myText: '',
     }, methods: {
         selectUser(i) {
             console.log('Tizio selezionato: ' + this.contacts[i].name);
             this.chatInProgress = i;
-        }, myText() {
-            //funzione per legare i miei messaggi
         }, submitMyText() { //invio dei miei messaggi
 
         }
