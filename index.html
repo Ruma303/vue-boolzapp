@@ -96,8 +96,6 @@
             </div>
 
             <!-- container dei messaggi -->
-                            <!-- --------------- PROBLEMA QUI  ------------------->
-
             <div class="main-area container d-flex p-0" style="background-image: url(img/whatsapp-background.png)">
                 <!-- header dei messaggi -->
                 <div class="main-area-header container d-flex justify-content-center align-items-center">
@@ -133,15 +131,13 @@
                     </div>
 
                     <!-- messaggio altro utente -->
-                    <!-- qui servirà un v-for  -->
-                    <div class="message user-message d-flex flex-column"> 
-                        <!-- v-if="selectUser(i)" possible? -->
-                        <p>{{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].message}}</p> 
-                        <span>{{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
+
+                    <!-- PROBLEMA QUI: COME MOSTRARE TUTTI I MESSAGGI DI UN UTENTE SELEZIONATO? -->
+                    <div class="message user-message d-flex flex-column"
+                    v-for="(singleMessage, index) in contacts.messages"> 
+                        <p>{{singleMessage.message}</p> 
+                        <span>{{contacts[i].messages[contacts[i].messages.length-1].date}}</span>
                     </div>
-                    <!-- <div class="message user-message"
-                    v-for="message in messages"
-                    :key="message"></div> -->
                 </div>
 
                 
