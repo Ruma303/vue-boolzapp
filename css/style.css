@@ -197,12 +197,12 @@ main {
 
 .user-message {
     background-color: white;
-    /* position: absolute; */
     top: 0; left: 0;
 }
 
-.date-message {
-   margin-left: 10rem;
+.message.my-message span,
+.message.user-message span {
+text-align: right;
 }
 
 /* AREA DI DIGITAZIONE  */

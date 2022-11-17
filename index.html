@@ -127,16 +127,17 @@
                     <!-- SIMULAZIONE CHAT -->
 
                     <!-- mio messaggio -->
-                    <div class="message my-message">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum tempore quam cupiditate, maxime autem exercitationem placeat accusantium veritatis, cumque culpa molestiae debitis sed sequi, ducimus animi voluptate non corrupti.</p>
-                        <span class='date-message'>data</span>
+                    <div class="message my-message d-flex flex-column">
+                        <p>Miei messaggi dinamici da aggiornare</p>
+                        <span>data dinamica da aggiornare</span>
                     </div>
 
                     <!-- messaggio altro utente -->
-                    <div class="message user-message">
+                    <!-- qui servirà un v-for  -->
+                    <div class="message user-message d-flex flex-column"> 
                         <!-- v-if="selectUser(i)" possible? -->
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, consequuntur sed quasi, ad corporis minima nam autem alias distinctio debitis ea explicabo officiis nemo sit deserunt optio non nihil quia!</p> 
-                        <span class='date-message'>data user</span>
+                        <p>{{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].message}}</p> 
+                        <span>{{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
                     </div>
                     <!-- <div class="message user-message"
                     v-for="message in messages"
