@@ -120,7 +120,10 @@ const app = new Vue ({
             console.log('Tizio selezionato: ' + this.contacts[i].name);
             this.chatInProgress = i;
         }, submitMyText() { //invio dei miei messaggi
+            console.log(this.myText);
 
+        }, handleSubmit(){
+            console.log('form submitted')
         }
     }, 
     

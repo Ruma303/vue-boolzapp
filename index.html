@@ -126,7 +126,7 @@
 
                     <!-- mio messaggio -->
                     <div class="message my-message d-flex flex-column">
-                        <p>Miei messaggi dinamici da aggiornare</p>
+                        <p>{{myText}}</p>
                         <span>data dinamica da aggiornare</span>
                     </div>
 
@@ -146,9 +146,12 @@
                 <!-- Area di digitazione -->
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
-                    <div><input type="text" class="input-area" placeholder="   Scrivi un messaggio"
-                        v-on:keyup.enter="submitMyText" v-model.trim="myText">
-                        <!-- serve il v-model="myText" ? -->
+                    <div>
+                        <form action="" method="get" @submit.prevent="handleSubmit">
+                            <input type="text" class="input-area px-3" placeholder="   Scrivi un messaggio"
+                            v-on:keyup.enter="submitMyText()" 
+                            v-model.trim="myText">
+                        </form>
                     </div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
