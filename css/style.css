@@ -130,7 +130,7 @@ main {
 }
 
 .contact-profile:hover {
-    background-color: salmon;
+    background-color: rgb(237, 238, 235);
 }
 
 /* visited da far funzionare */
@@ -167,46 +167,42 @@ main {
 }
 
 .main-area-messages {
-    overflow: scroll;
-}
-
-.main-area-messages {
     overflow-x:hidden;
     overflow-y:scroll;
-    position: absolute;
+    /* position: absolute; */
     z-index: 3;
     top: 0; left: 0; right: 0;
     margin-top: calc(100% / 10);
     height: calc(100% - ((100% / 12) * 2));
-    padding:.5rem;
+    padding:3rem;
 }
 
 /* MESSAGGI */
 
-.main-area-messages {
-    padding: 3rem;
-}
-
 .message {
-    position: relative;
     width: fit-content;
-    max-width: 10rem;
     height: fit-content;
+    max-width: 15rem;
     border: none;
     border-radius: 10px;
     padding: 1rem;
+    font-size: .7rem;
 }
 
 .my-message {
     background-color: rgb(212, 248, 186);
-    position: absolute;
-    top: 0; right: 0;
+    position: relative;
+    right: -20vw;
 }
 
 .user-message {
     background-color: white;
-    position: absolute;
+    /* position: absolute; */
     top: 0; left: 0;
+}
+
+.date-message {
+   margin-left: 10rem;
 }
 
 /* AREA DI DIGITAZIONE  */

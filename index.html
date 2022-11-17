@@ -111,8 +111,7 @@
                                 <!-- Nome tizio -->
                                 <span class="name-profile">{{contacts[chatInProgress].name}}</span>
                                 <!-- Ultimo messaggio tizio -->
-                                <span class="last-message">Ultimo accesso CAMBIA DINAMICAMENTE QUA</span>
-                                <!-- {{contacts.messages[contacts.messages.length-1].date}} da aggiustare -->
+                                <span class="last-message">Ultimo accesso {{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
                             </li>
                         </ul>
                         <ul class="contact-div-rt d-flex justify-content-center align-items-center m-0 px-2">
@@ -124,16 +123,24 @@
                 </div>
                 
                 <!-- area dei messaggi -->
-                <div class="main-area-messages container-fluid d-flex flex-column">
-
+                <div class="main-area-messages container d-flex flex-column gap-2">
                     <!-- SIMULAZIONE CHAT -->
+
                     <!-- mio messaggio -->
-                    <!-- <div class="message my-message"
-                    v-for="(item, index) in user.messages">{{ item.message }}</div> -->
+                    <div class="message my-message">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cum tempore quam cupiditate, maxime autem exercitationem placeat accusantium veritatis, cumque culpa molestiae debitis sed sequi, ducimus animi voluptate non corrupti.</p>
+                        <span class='date-message'>data</span>
+                    </div>
 
                     <!-- messaggio altro utente -->
-                    <div class="message user-message d-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, consequuntur sed quasi, ad corporis minima nam autem alias distinctio debitis ea explicabo officiis nemo sit deserunt optio non nihil quia!</div>
-
+                    <div class="message user-message">
+                        <!-- v-if="selectUser(i)" possible? -->
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, consequuntur sed quasi, ad corporis minima nam autem alias distinctio debitis ea explicabo officiis nemo sit deserunt optio non nihil quia!</p> 
+                        <span class='date-message'>data user</span>
+                    </div>
+                    <!-- <div class="message user-message"
+                    v-for="message in messages"
+                    :key="message"></div> -->
                 </div>
 
                 
@@ -143,7 +150,7 @@
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
                     <div><input type="text" class="input-area" placeholder="   Scrivi un messaggio"
-                        v-on:keyup.enter="submitMyText">
+                        v-on:keyup.enter="submitMyText" v-model.trim="myText">
                         <!-- serve il v-model="myText" ? -->
                     </div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
