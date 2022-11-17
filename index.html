@@ -37,9 +37,9 @@
                             <li class="name-profile m-2">Sofia</li>
                         </ul>
                         <ul class="profile-div-rt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li><i class="fa-solid fa-circle-notch px-2"></i></li>
-                            <li><i class="fa-solid fa-message px-2"></i></li>
-                            <li><i class="fa-solid fa-ellipsis-vertical px-2"></i></li>
+                            <li><a href="#"><i class="fa-solid fa-circle-notch px-2"></a></i></li>
+                            <li><a href="#"><i class="fa-solid fa-message px-2"></a></i></li>
+                            <li><a href="#"><i class="fa-solid fa-ellipsis-vertical px-2"></a></i></li>
                         </ul>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                 <!-- area di ricerca -->
                 <div class="aside-area-search container d-flex justify-content-center align-items-center p-1">
                     <div class="search-area row m-0 d-flex justify-content-center align-items-center">
-                            <div class="col-2 m-0 d-flex justify-content-center align-items-center"><i class="fa-solid fa-magnifying-glass px-2"></i></div>
+                            <div class="col-2 m-0 d-flex justify-content-center align-items-center"><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></div>
                             <div class="col-10 m-0 d-flex justify-content-center align-items-center"><input type="text" placeholder="Cerca o inizia una nuova chat"></div>
                     </div>
                 </div>
 
                 <!-- Div dei Contatti -->
-                <div class="user-div container d-flex flex-column justify-content-between align-items-center p-0">
+                <div class="user-contact-div container d-flex flex-column justify-content-between align-items-center p-0">
                     <!-- Creazione utenti -->
                     <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
                     v-for="(user, i) in contacts"
@@ -75,8 +75,7 @@
                             <div class="avatar-pic">
                                 <img :src="'img/avatar' + user.avatar + '.jpg'" alt="" class="pic-profile">
                             </div>
-                            <div class="text-profile m-2 d-flex flex-column
-                            ">
+                            <div class="text-profile m-2 d-flex flex-column">
                                 <!-- Nome tizio -->
                                 <span class="name-profile">{{user.name}}</span>
                                 <!-- Ultimo messaggio tizio -->
@@ -90,10 +89,10 @@
                         </li>
                     </ul>
                 </div>
-                
-                
             </div>
+
             <!-- container dei messaggi -->
+
             <div class="main-area container d-flex p-0" style="background-image: url(img/whatsapp-background.png)">
                 <!-- header dei messaggi -->
                 <div class="main-area-header container d-flex justify-content-center align-items-center">
@@ -103,16 +102,37 @@
                                 <!-- Sostituisci dinamicamente con vue -->
                                 <img src="img/avatar_1.jpg" alt="" class="pic-profile">
                             </li>
-                            <li class="name-contact m-2">Michele</li>
+                            <!-- non deve mostrarmeli tutti ma solo quello che ho selezionato, non va il v-for -->
+                            <li class="name-contact m-2 d-flex flex-column"
+                            v-show="changeStatus">
+                                <!-- Nome tizio -->
+                                <span class="name-profile">Nome dinamico qui</span>
+                                <!-- Ultimo messaggio tizio -->
+                                <span class="last-message">Ultimo messaggio dinamico qui</span>
+                            </li>
                         </ul>
                         <ul class="contact-div-rt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li><i class="fa-solid fa-magnifying-glass px-2"></i></li>
-                            <li><i class="fa-solid fa-paperclip px-2"></i></li>
-                            <li><i class="fa-solid fa-ellipsis-vertical px-2"></i></li>
+                            <li><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></li>
+                            <li><a href="#"><i class="fa-solid fa-paperclip px-2"></a></i></li>
+                            <li><a href="#"><i class="fa-solid fa-ellipsis-vertical px-2"></a></i></li>
                         </ul>
                     </div>
                 </div>
                 
+                <!-- area dei messaggi -->
+                <div class="main-area-messages container-fluid">
+                    
+                </div>
+
+                
+                
+                
+                <!-- Area di digitazione -->
+                <div class="main-area-input d-flex justify-content-around align-items-center px-1">
+                    <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
+                    <div><input type="text" class="input-area" placeholder="   Scrivi un messaggio"></div>
+                    <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
+                </div>
         </div>
       </main>
     </div>
