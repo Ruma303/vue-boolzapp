@@ -113,12 +113,31 @@ const app = new Vue ({
                 status: 'received', },
                 ],
             },
-        ]
+        ], chatInProgress: 0,
         
     }, methods: {
-        changeStatus(i) {
-            this.contacts[i].messages.status = 'received';
-            console.log('mo ce penso che devo scriverci');
+        selectUser(i) {
+            console.log('Tizio selezionato: ' + this.contacts[i].name);
+            this.chatInProgress = i;
+        }, myText() {
+            //funzione per legare i miei messaggi
+        }, submitMyText() { //invio dei miei messaggi
+
         }
+    }, 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    computed: {
+        //quando un utente risponde con un messaggio e quindi visualizzi il suo ultimo messaggio, cambia lo status a tutti a received, e magari fai un console log (oppure crea le due spunte blu)
     }
 });

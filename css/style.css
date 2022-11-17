@@ -16,10 +16,8 @@ ul {
     list-style: none;
 }
 
-
-
 main {
-    background-color: rgb(215, 218, 213);
+    background:linear-gradient(rgb(1, 148, 136) 0%,  rgb(215, 218, 213) 40%);
     margin-top: 20vh;
     height: 80vh;
     position: fixed;
@@ -44,7 +42,8 @@ main {
 }
 
 .aside-area-header,
-.main-area-header {
+.main-area-header,
+.main-area-input {
     height: calc(100% / 12);
 }
 
@@ -64,11 +63,12 @@ main {
     height: 100%;
 }
 
+/* ICONE */
 .fa-circle-notch,
 .fa-message,
 .fa-ellipsis-vertical,
 .fa-magnifying-glass,
-.fa-paperclip {
+.fa-paperclip{
     color: rgb(177, 177, 177);
 }
 
@@ -118,6 +118,12 @@ main {
 }
 
 /* contatti */
+
+.user-contact-div {
+    overflow-y: scroll;
+    height: 100%;
+}
+
 .contact-profile {
     cursor: pointer;
     width: 100%;
@@ -158,4 +164,68 @@ main {
     position: absolute;
     z-index: 3;
     top: 0; left: 0; right: 0;
+}
+
+.main-area-messages {
+    overflow: scroll;
+}
+
+.main-area-messages {
+    overflow-x:hidden;
+    overflow-y:scroll;
+    position: absolute;
+    z-index: 3;
+    top: 0; left: 0; right: 0;
+    margin-top: calc(100% / 10);
+    height: calc(100% - ((100% / 12) * 2));
+    padding:.5rem;
+}
+
+/* MESSAGGI */
+
+.main-area-messages {
+    padding: 3rem;
+}
+
+.message {
+    position: relative;
+    width: fit-content;
+    max-width: 10rem;
+    height: fit-content;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.my-message {
+    background-color: rgb(212, 248, 186);
+    position: absolute;
+    top: 0; right: 0;
+}
+
+.user-message {
+    background-color: white;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+/* AREA DI DIGITAZIONE  */
+
+.main-area-input {
+    background-color: rgb(242, 237, 233);
+    position: absolute;
+    z-index: 3;
+    bottom: 0; left: 0; right: 0;
+}
+
+.fa-microphone,
+.fa-face-smile {
+    color: rgb(99, 118, 141);
+}
+
+.input-area {
+    width: 27rem;
+    border: none;
+    height: 2.6rem;
+    border-radius: 10px;
 }
