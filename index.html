@@ -103,17 +103,12 @@
                 <div class="main-area-header container d-flex justify-content-center align-items-center">
                     <div class="contact-div container d-flex justify-content-between align-items-center p-0">
                         <ul class="contact-div-lt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li class="avatar-contact"
-                            
-                            v-for="(user, i) in contacts">
-                                <!-- Sostituisci dinamicamente con vue -->
-                                <img :src="'img/avatar' + i.avatar + '.jpg'" alt="" class="pic-profile">
+                            <li class="avatar-contact">
+                                <img :src="'img/avatar' + contacts[chatInProgress].avatar + '.jpg' " alt="" class="pic-profile">
                             </li>
-                            <!-- non deve mostrarmeli tutti ma solo quello che ho selezionato, non va il v-for -->
-                            <li class="name-contact m-2 d-flex flex-column"
-                            v-show="selectUser">
+                            <li class="name-contact m-2 d-flex flex-column">
                                 <!-- Nome tizio -->
-                                <span class="name-profile">Nome dinamico qui</span>
+                                <span class="name-profile">{{contacts.name}}</span>
                                 <!-- Ultimo messaggio tizio -->
                                 <span class="last-message">Ultimo messaggio dinamico qui</span>
                             </li>
@@ -145,7 +140,8 @@
                 <!-- Area di digitazione -->
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
-                    <div><input type="text" class="input-area" placeholder="   Scrivi un messaggio"></div>
+                    <div><input type="text" class="input-area" placeholder="   Scrivi un messaggio"
+                        v-model="myText"></div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
         </div>
