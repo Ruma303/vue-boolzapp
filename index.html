@@ -132,11 +132,10 @@
 
                     <!-- messaggio altro utente -->
 
-                    <!-- PROBLEMA QUI: COME MOSTRARE TUTTI I MESSAGGI DI UN UTENTE SELEZIONATO? -->
                     <div class="message user-message d-flex flex-column"
-                    v-for="(singleMessage, index) in contacts.messages"> 
-                        <p>{{singleMessage.message}</p> 
-                        <span>{{contacts[i].messages[contacts[i].messages.length-1].date}}</span>
+                    v-for="(singleMessage, index) in contacts[chatInProgress].messages"> 
+                        <p>{{singleMessage.message}}</p> 
+                        <span>{{singleMessage.date}}</span>
                     </div>
                 </div>
 
