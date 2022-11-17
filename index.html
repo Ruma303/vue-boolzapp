@@ -12,13 +12,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
     <!-- Mio CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    [v-cloak] {
+        display:none;
+    }</style>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
     <!-- Mio Javascript -->
     <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div id="app" class="container-fluid d-flex justify-content-center align-items-center m-auto mx-0 px-0">
+    <div id="app" v-cloak class="container-fluid d-flex justify-content-center align-items-center m-auto mx-0 px-0">
       <header class="container-fluid mx-0 px-0"></header>
 
       <main class="container-fluid d-flex justify-content-center align-items-center m-auto mx-0 px-0">
@@ -62,13 +66,13 @@
                     </div>
                 </div>
 
-                <!-- Div dei Contatti -->
+                <!-- Area laterale con i Contatti -->
                 <div class="user-contact-div container d-flex flex-column justify-content-between align-items-center p-0">
                     <!-- Creazione utenti -->
                     <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
                     v-for="(user, i) in contacts"
                     :class=""  
-                    @click="changeStatus(i)">
+                    @click="selectUser(i)">
                     <!-- :class da bindare al click -->
                         <li class="avatar-profile d-flex justify-content-center align-items-center">
                             <!-- Sostituisci dinamicamente con vue -->
@@ -92,19 +96,22 @@
             </div>
 
             <!-- container dei messaggi -->
+                            <!-- --------------- PROBLEMA QUI  ------------------->
 
             <div class="main-area container d-flex p-0" style="background-image: url(img/whatsapp-background.png)">
                 <!-- header dei messaggi -->
                 <div class="main-area-header container d-flex justify-content-center align-items-center">
                     <div class="contact-div container d-flex justify-content-between align-items-center p-0">
                         <ul class="contact-div-lt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li class="avatar-contact">
+                            <li class="avatar-contact"
+                            
+                            v-for="(user, i) in contacts">
                                 <!-- Sostituisci dinamicamente con vue -->
-                                <img src="img/avatar_1.jpg" alt="" class="pic-profile">
+                                <img :src="'img/avatar' + i.avatar + '.jpg'" alt="" class="pic-profile">
                             </li>
                             <!-- non deve mostrarmeli tutti ma solo quello che ho selezionato, non va il v-for -->
                             <li class="name-contact m-2 d-flex flex-column"
-                            v-show="changeStatus">
+                            v-show="selectUser">
                                 <!-- Nome tizio -->
                                 <span class="name-profile">Nome dinamico qui</span>
                                 <!-- Ultimo messaggio tizio -->
@@ -120,8 +127,16 @@
                 </div>
                 
                 <!-- area dei messaggi -->
-                <div class="main-area-messages container-fluid">
-                    
+                <div class="main-area-messages container-fluid d-flex flex-column">
+
+                    <!-- SIMULAZIONE CHAT -->
+                    <!-- mio messaggio -->
+                    <!-- <div class="message my-message"
+                    v-for="(item, index) in user.messages">{{ item.message }}</div> -->
+
+                    <!-- messaggio altro utente -->
+                    <div class="message user-message d-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, consequuntur sed quasi, ad corporis minima nam autem alias distinctio debitis ea explicabo officiis nemo sit deserunt optio non nihil quia!</div>
+
                 </div>
 
                 
