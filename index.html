@@ -78,9 +78,8 @@
                     <!-- Creazione utenti -->
                     <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
                     v-for="(user, i) in contacts"
-                    :class=""  
-                    @click="selectUser(i)"
-                    v-show="">
+                    :key="user.avatar"
+                    @click="selectUser(i)">
                     <!-- :class da bindare al click -->
                         <li class="avatar-profile d-flex justify-content-center align-items-center">
                             <!-- Sostituisci dinamicamente con vue -->
@@ -141,10 +140,10 @@
                     v-for="message in contacts[chatInProgress].messages"
                     :class="message.status + '-message'">
                         <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
-                        <p>{{message.myText}}</p>
+                        <p>{{message.message}}</p>
                         <span class="sent-date">{{message.date}}</span>
-                        <!-- Menu a tendina nei messaggi -->
-                       
+                        
+                        <!-- Menu a tendina nei messaggi -->  
                         <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
                             <li>Modifica</li>
                             <li>Pianifica risposta</li>
@@ -152,20 +151,6 @@
                             <li>Cancella Messaggio</li>
                         </ul>
                     </div>
-
-                    <!-- messaggi altro utente NO-->
-                    <!-- <div class="message user-message d-flex flex-column"
-                    v-for="(singleMessage, index) in contacts[chatInProgress].messages"> 
-                    <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
-                        <p>{{singleMessage.message}}</p> 
-                        <span>{{singleMessage.date}}</span>
-                        <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
-                            <li>Rispondi</li>
-                            <li>Pianifica risposta</li>
-                            <li>Inoltra</li>
-                            <li>Cancella Messaggio</li>
-                        </ul>
-                    </div> -->
                 </div>
 
                 
@@ -176,7 +161,7 @@
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
                     <div>
                         <input type="text" class="input-area px-3" placeholder="Scrivi un messaggio"
-                        @keyup.enter="submitMyText" v-model="myText">
+                        @keyup.enter="sendMessage" v-model="myText">
                     </div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>

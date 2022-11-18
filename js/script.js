@@ -119,37 +119,43 @@ const app = new Vue ({
      }, methods: {
          selectUser(i) {//seleziona utenti al click
              this.chatInProgress = i;
-         }, 
-         submitMyText() { //invio dei miei messaggi
+            }, 
+            sendMessage() { //invio dei miei messaggi
              this.contacts[this.chatInProgress].messages.push({
-                 date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
                  message: this.myText,
-                 status: 'sent',
+                 date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ')
+                 .split('.')[0],
+                 status: 'sent', //questo è il mio messaggio
              });
-             this.myText = '';
-             const receivedIndex ='';
+             this.myText = ''; //reset dell'input dopo l'invio;
+
+             //risposta dell'altro utente.
              setTimeout(() =>{
-                 console.log(this),
-                 this.contacts[receivedIndex].messages.push({
-                 date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
-                 message: this.myText,
-                 status: 'received',
+                 this.contacts[this.chatInProgress].messages.push({
+                    message: 'ok', //risposta standard per ora
+                    date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ')
+                    .split('.')[0],
+                    status: 'received', //questo è il messaggio dell'altro utente.
                  });
-             }, 1500);
+             }, 1000); //risposta dopo 1s
          },
+         
+         //da completare da qua
          userSearch() {//funzione ricerca utenti
              this.contacts.forEach((element, i) => {
                  if(!this.contacts[i].name.slice(0, this.research.length)) {
                      this.contacts[i].visible = false; //se non corrisponde, nascondi
-                 } 
+                 } else {
+                    this.contacts[i].visible = true;
+                 }
              });
          }, 
-        
+    
      }, 
      
  
       
-     computed: {
+     CREATED: { //scrivilo in minuscolo dopo
          //quando un utente risponde con un messaggio e quindi visualizzi il suo ultimo messaggio, cambia lo status a tutti a received, e magari fai un console log (oppure crea le due spunte blu)
      }
  });
