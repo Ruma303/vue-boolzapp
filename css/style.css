@@ -187,12 +187,12 @@ main {
     border-radius: 10px;
     padding: 1rem;
     font-size: .7rem;
+    overflow-wrap: break-word;
+    position: relative;
 }
 
 .my-message {
     background-color: rgb(212, 248, 186);
-    position: relative;
-    right: -20vw;
 }
 
 .user-message {
@@ -201,8 +201,28 @@ main {
 }
 
 .message.my-message span,
-.message.user-message span {
+.message.my-message a,
+.message.user-message span,
+.message.user-message a {
 text-align: right;
+}
+
+.message a {
+    color: grey;
+} 
+
+/* Aggiusta l'hover che deve mostrarsi */
+.message:hover a {
+    display: block;
+    cursor: pointer;
+}
+
+.message-menu{
+    position:absolute;
+    background-color: white;
+    right: -2rem;
+    top: 4rem;
+    border-radius: 5px;
 }
 
 /* AREA DI DIGITAZIONE  */

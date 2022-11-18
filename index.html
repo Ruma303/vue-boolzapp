@@ -16,6 +16,8 @@
     [v-cloak] {
         display:none;
     }</style>
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
     <!-- Mio Javascript -->
@@ -62,7 +64,12 @@
                 <div class="aside-area-search container d-flex justify-content-center align-items-center p-1">
                     <div class="search-area row m-0 d-flex justify-content-center align-items-center">
                             <div class="col-2 m-0 d-flex justify-content-center align-items-center"><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></div>
-                            <div class="col-10 m-0 d-flex justify-content-center align-items-center"><input type="text" placeholder="Cerca o inizia una nuova chat"></div>
+                            <div class="col-10 m-0 d-flex justify-content-center align-items-center">
+                                <input type="text" placeholder="Cerca o inizia una nuova chat"
+                                v-model="research" @keyup="userSearch" 
+                                :class="">
+                                <!-- da finire qua -->
+                            </div>
                     </div>
                 </div>
 
@@ -72,7 +79,8 @@
                     <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
                     v-for="(user, i) in contacts"
                     :class=""  
-                    @click="selectUser(i)">
+                    @click="selectUser(i)"
+                    v-show="">
                     <!-- :class da bindare al click -->
                         <li class="avatar-profile d-flex justify-content-center align-items-center">
                             <!-- Sostituisci dinamicamente con vue -->
@@ -110,6 +118,7 @@
                                 <span class="name-profile">{{contacts[chatInProgress].name}}</span>
                                 <!-- Ultimo messaggio tizio -->
                                 <span class="last-message">Ultimo accesso {{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
+                                
                             </li>
                         </ul>
                         <ul class="contact-div-rt d-flex justify-content-center align-items-center m-0 px-2">
@@ -120,22 +129,41 @@
                     </div>
                 </div>
                 
+                
                 <!-- area dei messaggi -->
                 <div class="main-area-messages container d-flex flex-column gap-2">
                     <!-- SIMULAZIONE CHAT -->
 
-                    <!-- mio messaggio -->
-                    <div class="message my-message d-flex flex-column">
-                        <p>{{myText}}</p>
-                        <span>data dinamica da aggiornare</span>
+                    <!-- miei messaggi -->
+
+                    <!-- PROBLEMA QUI -->
+                    <div class="message my-message d-flex flex-column align-self-end"
+                    v-for="objMessage in contacts[chatInProgress].messages"
+                    :class="'message-' + objMessage.status">
+                        <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
+                        <p>{{objMessage.myText}}</p>
+                        <span></span>
+                        <!-- Menu a tendina nei messaggi -->
+                        <ul class="message-menu d-flex flex-column gap-2 d-none">
+                            <li>Modifica</li>
+                            <li>Pianifica risposta</li>
+                            <li>Inoltra</li>
+                            <li>Cancella Messaggio</li>
+                        </ul>
                     </div>
 
-                    <!-- messaggio altro utente -->
-
+                    <!-- messaggi altro utente -->
                     <div class="message user-message d-flex flex-column"
                     v-for="(singleMessage, index) in contacts[chatInProgress].messages"> 
+                    <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
                         <p>{{singleMessage.message}}</p> 
                         <span>{{singleMessage.date}}</span>
+                        <ul class="message-menu d-flex flex-column gap-2 d-none">
+                            <li>Rispondi</li>
+                            <li>Pianifica risposta</li>
+                            <li>Inoltra</li>
+                            <li>Cancella Messaggio</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -146,11 +174,8 @@
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
                     <div>
-                        <form action="" method="get" @submit.prevent="handleSubmit">
-                            <input type="text" class="input-area px-3" placeholder="   Scrivi un messaggio"
-                            v-on:keyup.enter="submitMyText()" 
-                            v-model.trim="myText">
-                        </form>
+                        <input type="text" class="input-area px-3" placeholder="Scrivi un messaggio"
+                        @keyup.enter="submitMyText" v-model="myText">
                     </div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
