@@ -148,12 +148,7 @@ const app = new Vue ({
          
 
      },/* computed: {
-        //PROBLEMA QUI PER RICERCA UTENTI FILTRATA
-        filteredSearch() {
-            return this.contacts.name.filter((name) => {
-               return contacts.name.match(this.search)})
-            }  
-            //console.log(filteredSearch);
+
      }*/
  });
 

@@ -65,19 +65,18 @@
                     <div class="search-area row m-0 d-flex justify-content-center align-items-center">
                         <div class="col-2 m-0 d-flex justify-content-center align-items-center"><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></div>
                         <div class="col-10 m-0 d-flex justify-content-center align-items-center">
-                            <input type="text" placeholder="Cerca o inizia una nuova chat"
+                            <input type="text" placeholder="   Cerca o inizia una nuova chat"
                             v-model="search">
-                            <!-- @keyup="searchContact" -->
                         </div>
                     </div>
                 </div>
 
                 <!-- Area laterale con i Contatti -->
-                <div class="user-contact-div container d-flex flex-column justify-content-between align-items-center p-0">
+                <div class="user-contact-div container d-flex flex-column justify-content-start align-items-center p-0">
                     <!-- Creazione utenti con v-for -->
                     <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
-                    v-if="searchContacts(user.name)"
                     v-for="(user, i) in contacts"
+                    v-if="searchContacts(user.name)"
                     :key="user.avatar"
                     @click="selectUser(i)">
                     <!-- :class da bindare al click -->
