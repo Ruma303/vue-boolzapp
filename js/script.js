@@ -113,31 +113,42 @@ const app = new Vue ({
                 status: 'received', },
                 ],
             },
-        ], chatInProgress: 0,
-        myText: '',
+        ], chatInProgress: 0, //indice per selezionare la chat
+        myText: '', //variabile per cosa scrivo io
+        research: '', //var per ricerca utenti
     }, methods: {
-        selectUser(i) {
-            console.log('Tizio selezionato: ' + this.contacts[i].name);
+        selectUser(i) {//seleziona utenti al click
             this.chatInProgress = i;
-        }, submitMyText() { //invio dei miei messaggi
-            console.log(this.myText);
-
-        }, handleSubmit(){
-            console.log('form submitted')
-        }
+        }, 
+        submitMyText() { //invio dei miei messaggi
+            this.contacts[this.chatInProgress].messages.push({
+                date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
+                message: this.myText,
+                status: 'sent',
+            });
+            this.myText = '';
+            const receivedIndex ='';
+            setTimeout(() =>{
+                console.log(this),
+                this.contacts[receivedIndex].messages.push({
+                date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
+                message: this.myText,
+                status: 'received',
+                });
+            }, 1500);
+        },
+        userSearch() {//funzione ricerca utenti
+            this.contacts.forEach((element, i) => {
+                if(!this.contacts[i].name.slice(0, this.research.length)) {
+                    this.contacts[i].visible = false; //se non corrisponde, nascondi
+                } 
+            });
+        }, 
+        // filteredUser() {},
     }, 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+     
     computed: {
         //quando un utente risponde con un messaggio e quindi visualizzi il suo ultimo messaggio, cambia lo status a tutti a received, e magari fai un console log (oppure crea le due spunte blu)
     }
