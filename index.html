@@ -136,15 +136,16 @@
 
                     <!-- miei messaggi -->
 
-                    <!-- PROBLEMA QUI -->
+                    <!-- QUESTO DIV è unico per i tuoi messaggi e quello dell'altro utente -->
                     <div class="message my-message d-flex flex-column align-self-end"
-                    v-for="objMessage in contacts[chatInProgress].messages"
-                    :class="'message-' + objMessage.status">
+                    v-for="message in contacts[chatInProgress].messages"
+                    :class="'message-' + message.status">
                         <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
                         <p>{{objMessage.myText}}</p>
-                        <span></span>
+                        <span class="sent-date">{{objMessage.date}}</span>
                         <!-- Menu a tendina nei messaggi -->
-                        <ul class="message-menu d-flex flex-column gap-2 d-none">
+                       
+                        <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
                             <li>Modifica</li>
                             <li>Pianifica risposta</li>
                             <li>Inoltra</li>
@@ -152,19 +153,19 @@
                         </ul>
                     </div>
 
-                    <!-- messaggi altro utente -->
-                    <div class="message user-message d-flex flex-column"
+                    <!-- messaggi altro utente NO-->
+                    <!-- <div class="message user-message d-flex flex-column"
                     v-for="(singleMessage, index) in contacts[chatInProgress].messages"> 
                     <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
                         <p>{{singleMessage.message}}</p> 
                         <span>{{singleMessage.date}}</span>
-                        <ul class="message-menu d-flex flex-column gap-2 d-none">
+                        <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
                             <li>Rispondi</li>
                             <li>Pianifica risposta</li>
                             <li>Inoltra</li>
                             <li>Cancella Messaggio</li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
 
                 
