@@ -116,6 +116,7 @@ const app = new Vue ({
          ], chatInProgress: 0, //indice per selezionare un utente specifico
          myText: '', //variabile per cosa scrivo io
          search: '', //var per ricerca utenti
+         showMenu: false, //per mostrare o meno il menu a tendina
      }, methods: {
          selectUser(i) {//seleziona utenti al click
              this.chatInProgress = i;
@@ -144,7 +145,10 @@ const app = new Vue ({
          }, 
          searchContacts(nameOfUser){
             return nameOfUser.toLowerCase().includes(this.search);
-         }
+         },/*
+         dropMenuShow(){
+            this.menuShow = !this.menuShow;
+         }*/
          
 
      },/* computed: {

@@ -79,9 +79,7 @@
                     v-if="searchContacts(user.name)"
                     :key="user.avatar"
                     @click="selectUser(i)">
-                    <!-- :class da bindare al click -->
                         <li class="avatar-profile d-flex justify-content-center align-items-center">
-                            <!-- Sostituisci dinamicamente con vue -->
                             <div class="avatar-pic">
                                 <img :src="'img/avatar' + user.avatar + '.jpg'" alt="" class="pic-profile">
                             </div>
@@ -138,23 +136,21 @@
                     <div class="message d-flex flex-column"
                     v-for="message in contacts[chatInProgress].messages"
                     :class="message.status + '-message'">
-                        <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="#" @click="showMenu = !showMenu"><i class="fa-solid fa-chevron-down"></i></a>
                         <p>{{message.message}}</p>
                         <span class="sent-date">{{message.date}}</span>
                         
                         <!-- Menu a tendina nei messaggi -->  
-                        <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
-                            <li>Modifica</li>
-                            <li>Pianifica risposta</li>
-                            <li>Inoltra</li>
-                            <li>Cancella Messaggio</li>
+                        <ul class="message-menu d-flex flex-column gap-1 p-1 m-0"
+                        v-if="showMenu">
+                            <a href="#"><li>Modifica</li></a>
+                            <a href="#"><li>Pianifica risposta</li></a>
+                            <a href="#"><li>Inoltra</li></a>
+                            <a href="#"><li>Cancella Messaggio</li></a>
                         </ul>
                     </div>
                 </div>
 
-                
-                
-                
                 <!-- Area di digitazione -->
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
