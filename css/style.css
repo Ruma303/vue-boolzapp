@@ -190,19 +190,20 @@ main {
     position: relative;
 }
 
-.my-message {
-    background-color: rgb(212, 248, 186);
+.sent-message {
+    background-color: rgb(212, 248, 186);align-self: end;
 }
 
-.user-message {
+.received-message {
     background-color: white;
     top: 0; left: 0;
+    align-self: start;
 }
 
-.message.my-message span,
-.message.my-message a,
-.message.user-message span,
-.message.user-message a {
+.message.sent-message span,
+.message.sent-message a,
+.message.received-message span,
+.message.received-message a {
 text-align: right;
 }
 

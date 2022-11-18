@@ -137,12 +137,12 @@
                     <!-- miei messaggi -->
 
                     <!-- QUESTO DIV è unico per i tuoi messaggi e quello dell'altro utente -->
-                    <div class="message my-message d-flex flex-column align-self-end"
+                    <div class="message d-flex flex-column"
                     v-for="message in contacts[chatInProgress].messages"
-                    :class="'message-' + message.status">
+                    :class="message.status + '-message'">
                         <a href="#"><i class="fa-solid fa-chevron-down"></i></a>
-                        <p>{{objMessage.myText}}</p>
-                        <span class="sent-date">{{objMessage.date}}</span>
+                        <p>{{message.myText}}</p>
+                        <span class="sent-date">{{message.date}}</span>
                         <!-- Menu a tendina nei messaggi -->
                        
                         <ul class="message-menu d-flex flex-column gap-2 p-1 m-0 d-none">
