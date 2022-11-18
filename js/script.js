@@ -116,7 +116,7 @@ const app = new Vue ({
          ], chatInProgress: 0, //indice per selezionare un utente specifico
          myText: '', //variabile per cosa scrivo io
          search: '', //var per ricerca utenti
-         showMenu: false, //per mostrare o meno il menu a tendina
+         showMenu: '', //per mostrare o meno il menu a tendina
      }, methods: {
          selectUser(i) {//seleziona utenti al click
              this.chatInProgress = i;
@@ -133,8 +133,7 @@ const app = new Vue ({
              const actualIndex = this.chatInProgress; //conserva l'info dell'utente
              setTimeout(() =>{
                  this.contacts[actualIndex].messages.push({
-                    message: 'ok', //risposta standard per ora
-                    //date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
+                    message: 'ok', 
                     date: this.getNow(),
                     status: 'received', //questo è il messaggio dell'altro utente.
                  });
@@ -145,14 +144,7 @@ const app = new Vue ({
          }, 
          searchContacts(nameOfUser){
             return nameOfUser.toLowerCase().includes(this.search);
-         },/*
-         dropMenuShow(){
-            this.menuShow = !this.menuShow;
-         }*/
-         
-
-     },/* computed: {
-
-     }*/
+         },
+     },
  });
 

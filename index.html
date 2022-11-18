@@ -136,7 +136,8 @@
                     <div class="message d-flex flex-column"
                     v-for="message in contacts[chatInProgress].messages"
                     :class="message.status + '-message'">
-                        <a href="#" @click="showMenu = !showMenu"><i class="fa-solid fa-chevron-down"></i></a>
+                        <a href="#" @click="showMenu = !showMenu"><i class="fa-solid fa-chevron-down " 
+                            :class="{arrowChange: showMenu}"></i></a>
                         <p>{{message.message}}</p>
                         <span class="sent-date">{{message.date}}</span>
                         
@@ -154,10 +155,8 @@
                 <!-- Area di digitazione -->
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
-                    <div>
-                        <input type="text" class="input-area px-3" placeholder="Scrivi un messaggio"
+                        <input type="text" class="input-area px-3 col-9" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMessage" v-model="myText">
-                    </div>
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
         </div>
