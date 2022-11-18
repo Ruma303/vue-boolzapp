@@ -115,7 +115,7 @@ const app = new Vue ({
              },
          ], chatInProgress: 0, //indice per selezionare un utente specifico
          myText: '', //variabile per cosa scrivo io
-         research: '', //var per ricerca utenti
+         search: '', //var per ricerca utenti
      }, methods: {
          selectUser(i) {//seleziona utenti al click
              this.chatInProgress = i;
@@ -138,55 +138,20 @@ const app = new Vue ({
                     status: 'received', //questo è il messaggio dell'altro utente.
                  });
              }, 1000); //risposta dopo 1s
-         }, getNow(){ //metodo per avere la data attuale
+         }, 
+         getNow(){ //metodo per avere la data attuale
             return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
          },
          
-         //da completare da qua
-         userSearch() {//funzione ricerca utenti
-             this.contacts.forEach((element, i) => {
-                 if(!this.contacts[i].name.slice(0, this.research.length)) {
-                     this.contacts[i].visible = false; //se non corrisponde, nascondi
-                 } else {
-                    this.contacts[i].visible = true;
-                 }
-             });
-         }, 
-    
-     }, 
-     
- 
-      
-     CREATED: { //scrivilo in minuscolo dopo
-         //quando un utente risponde con un messaggio e quindi visualizzi il suo ultimo messaggio, cambia lo status a tutti a received, e magari fai un console log (oppure crea le due spunte blu)
+
+     }, computed: {
+        /* PROBLEMA QUI PER RICERCA UTENTI FILTRATA
+        filteredSearch(user) {
+            return this.contacts.name.filter( user => contacts.name.includes(this.search))
+        }
+        */
      }
+     
+
  });
 
- /*
-userSearch() {//funzione ricerca utenti
-    this.contacts.forEach((element, i) => {
-        if(!this.contacts[i].name.toLowerCase().slice(0, this.research.length.toLowerCase())) {
-            this.contacts[i].visible = true;
-        } else {
-            this.contacts[i].visible = false; //se non corrisponde, nascondi
-        } 
-    });
-}, 
-showDropDownMenu: async function(msg) { //mostrare il menu a tendina
-    msg.showDropDown = !msg.showDropDown;
-    console.log(msg);
-}
-// filteredUser() {},
-}, 
-*/
-
-
-/*created() {//mostrare il menu drop down ad ogni messaggio
-this.contacts.forEach((contact, i) => {
-    contact.messages.forEach((message) => {
-        message.showDropDownMenu = false;
-    });
-    console.log(contact)
-})
-}*/
-//quando un utente risponde con un messaggio e quindi visualizzi il suo ultimo messaggio, cambia lo status a tutti a received, e magari fai un console log (oppure crea le due spunte blu)
