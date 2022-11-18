@@ -123,21 +123,23 @@ const app = new Vue ({
             sendMessage() { //invio dei miei messaggi
              this.contacts[this.chatInProgress].messages.push({
                  message: this.myText,
-                 date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ')
-                 .split('.')[0],
+                 date: this.getNow(),
                  status: 'sent', //questo è il mio messaggio
              });
              this.myText = ''; //reset dell'input dopo l'invio;
 
              //risposta dell'altro utente.
+             const actualIndex = this.chatInProgress; //conserva l'info dell'utente
              setTimeout(() =>{
-                 this.contacts[this.chatInProgress].messages.push({
+                 this.contacts[actualIndex].messages.push({
                     message: 'ok', //risposta standard per ora
-                    date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ')
-                    .split('.')[0],
+                    //date: new Date().toISOString().replaceAll('-', '/').replaceAll('T', ' ').split('.')[0],
+                    date: this.getNow(),
                     status: 'received', //questo è il messaggio dell'altro utente.
                  });
              }, 1000); //risposta dopo 1s
+         }, getNow(){ //metodo per avere la data attuale
+            return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
          },
          
          //da completare da qua
