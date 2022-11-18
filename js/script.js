@@ -141,19 +141,19 @@ const app = new Vue ({
          }, 
          getNow(){ //metodo per avere la data attuale
             return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
-         },
+         }, 
+         searchContact(nameOfUser){
+            return nameOfUser.includes(this.search);
+         }
          
 
-     }, computed: {
+     },/* computed: {
         //PROBLEMA QUI PER RICERCA UTENTI FILTRATA
         filteredSearch() {
             return this.contacts.name.filter((name) => {
                return contacts.name.match(this.search)})
-                        //console.log(this.search);
-        }
-        
-     }
-     
-
+            }  
+            //console.log(filteredSearch);
+     }*/
  });
 
