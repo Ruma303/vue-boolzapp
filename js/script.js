@@ -145,8 +145,9 @@ const app = new Vue ({
          searchContacts(nameOfUser){
             return nameOfUser.toLowerCase().includes(this.search);
          },
-         deleteMessage(index){ //cancello i messaggi da aggiustare
-            this.contacts[chatInProgress].messages.splice(index, 1);
+         deleteMessage(index){ //cancello i messaggi 
+            this.contacts[this.chatInProgress].messages.splice(index, 1);
+            //PROBLEMA: IL PRIMO MESSAGGIO NON ME LO CANCELLA
          }
      },
  });

@@ -277,11 +277,9 @@ text-align: right;
 }
 
 .input-area {
-    /* width: 27rem; */
     border: none;
     height: 2.6rem;
     border-radius: 10px;
     font-size: 1rem;
     max-height: 2.3rem;
-
 }
