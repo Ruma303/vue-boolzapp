@@ -145,6 +145,9 @@ const app = new Vue ({
          searchContacts(nameOfUser){
             return nameOfUser.toLowerCase().includes(this.search);
          },
+         deleteMessage(index){ //cancello i messaggi da aggiustare
+            this.contacts[chatInProgress].messages.splice(index, 1);
+         }
      },
  });
 

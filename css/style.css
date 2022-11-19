@@ -41,9 +41,15 @@ main {
     height: 100%;
 }
 
+.profile-div-rt,
+.user-div-container {
+    height: 100%;
+}
+
 .aside-area-header,
 .main-area-header,
-.main-area-input {
+.main-area-input,
+.aside-area-banner {
     height: calc(100% / 12);
 }
 
@@ -74,7 +80,6 @@ main {
 
 .aside-area-banner {
     background-color: rgb(157, 215, 249);
-    height: calc(100% / 12);
 } 
 
 .notification-div-lt i {
@@ -85,7 +90,6 @@ main {
     font-size: 1rem;
     margin-right: .5rem;
 }
-
 
 .notification-div-lt span {
     font-size: .7rem;
@@ -100,6 +104,10 @@ main {
     background-color: rgb(250, 250, 250);
     height: calc(100% / 15);
 } 
+
+.input-search{
+    font-size: .7rem;
+}
 
 .search-area {
     background-color: white;
@@ -151,9 +159,12 @@ main {
 
 /* area messaggi destra */
 
+.contact-div{
+    height: 100%;
+}
+
 .main-area {
     width: 60%;
-    background-color: aqua;
     height: 100%;
     position: relative;
     z-index: 2;
@@ -171,9 +182,9 @@ main {
     overflow-y:scroll;
     z-index: 3;
     top: 0; left: 0; right: 0;
-    margin-top: calc(100% / 12);
+    margin-top: 50.2px;
     height: calc(100% - ((100% / 12) * 2));
-    padding:3rem;
+    padding: 3rem;
 }
 
 /* MESSAGGI */
@@ -270,4 +281,7 @@ text-align: right;
     border: none;
     height: 2.6rem;
     border-radius: 10px;
+    font-size: 1rem;
+    max-height: 2.3rem;
+
 }

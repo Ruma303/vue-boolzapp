@@ -29,14 +29,14 @@
 
       <main class="container-fluid d-flex justify-content-center align-items-center m-auto mx-0 px-0">
 
-        <!-- container centrale dell'app -->
+        <!-- container dell'app -->
         <div class="main-container container d-flex justify-content-center align-items-center">
             <!-- container dei contatti -->
             <div class="aside-area container d-flex flex-column p-0">
                 <!-- header della barra laterale -->
                 <div class="aside-area-header container d-flex justify-content-center align-items-center p-0">
                     <div class="user-div container d-flex justify-content-between align-items-center p-0">
-                        <ul class="profile-div-lt d-flex justify-content-center align-items-center m-0 px-2">
+                        <ul class="profile-div-lt d-flex justify-content-center align-items-center m-0 p-2">
                             <li class="avatar-profile">
                                 <img src="img/avatar_io.jpg" alt="" class="pic-profile">
                             </li>
@@ -66,7 +66,7 @@
                         <div class="col-2 m-0 d-flex justify-content-center align-items-center"><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></div>
                         <div class="col-10 m-0 d-flex justify-content-center align-items-center">
                             <input type="text" placeholder="   Cerca o inizia una nuova chat"
-                            v-model="search">
+                            v-model="search" class="lead m-0 input-search">
                         </div>
                     </div>
                 </div>
@@ -74,12 +74,12 @@
                 <!-- Area laterale con i Contatti -->
                 <div class="user-contact-div container d-flex flex-column justify-content-start align-items-center p-0">
                     <!-- Creazione utenti con v-for -->
-                    <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2"
+                    <ul class="contact-profile d-flex justify-content-between align-items-center m-0 px-2 row"
                     v-for="(user, i) in contacts"
                     v-if="searchContacts(user.name)"
                     :key="user.avatar"
                     @click="selectUser(i)">
-                        <li class="avatar-profile d-flex justify-content-center align-items-center">
+                        <li class="avatar-profile d-flex justify-content-start align-items-center col-8 px-0">
                             <div class="avatar-pic">
                                 <img :src="'img/avatar' + user.avatar + '.jpg'" alt="" class="pic-profile">
                             </div>
@@ -91,9 +91,9 @@
                             </div>
                         </li>
 
-                        <li class="profile-div-rt">
+                        <li class="profile-div-rt col-4 justify-content-end px-0">
                             <!-- inserire la data e orario -->
-                            <div class="last-seen d-flex justify-content-start align-items-start m-0 px-2">{{user.messages[user.messages.length-1].date}}</div>
+                            <div class="last-seen d-flex justify-content-end align-items-start m-0 px-0">{{user.messages[user.messages.length-1].date}}</div>
                         </li>
                     </ul>
                 </div>
@@ -102,39 +102,34 @@
             <!-- container dei messaggi -->
             <div class="main-area container d-flex p-0" style="background-image: url(img/whatsapp-background.png)">
                 <!-- header dei messaggi -->
-                <div class="main-area-header container d-flex justify-content-center align-items-center">
-                    <div class="contact-div container d-flex justify-content-between align-items-center p-0">
-                        <ul class="contact-div-lt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li class="avatar-contact">
-                                <!-- Immagine profilo tizio -->
-                                <img :src="'img/avatar' + contacts[chatInProgress].avatar + '.jpg' " alt="" class="pic-profile">
-                            </li>
-                            <li class="name-contact m-2 d-flex flex-column">
-                                <!-- Nome tizio -->
-                                <span class="name-profile">{{contacts[chatInProgress].name}}</span>
-                                <!-- Ultimo messaggio tizio -->
-                                <span class="last-message">Ultimo accesso {{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
-                                
-                            </li>
-                        </ul>
-                        <ul class="contact-div-rt d-flex justify-content-center align-items-center m-0 px-2">
-                            <li><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></li>
-                            <li><a href="#"><i class="fa-solid fa-paperclip px-2"></a></i></li>
-                            <li><a href="#"><i class="fa-solid fa-ellipsis-vertical px-2"></a></i></li>
-                        </ul>
-                    </div>
+                <div class="main-area-header container d-flex justify-content-between align-items-center p-0">
+                    <ul class="contact-div-lt d-flex justify-content-center align-items-center m-0 px-2">
+                        <li class="avatar-contact">
+                            <!-- Immagine profilo tizio -->
+                            <img :src="'img/avatar' + contacts[chatInProgress].avatar + '.jpg' " alt="" class="pic-profile">
+                        </li>
+                        <li class="name-contact m-2 d-flex flex-column">
+                            <!-- Nome tizio -->
+                            <span class="name-profile">{{contacts[chatInProgress].name}}</span>
+                            <!-- Ultimo messaggio tizio -->
+                            <span class="last-message">Ultimo accesso {{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
+                            
+                        </li>
+                    </ul>
+                    <ul class="contact-div-rt d-flex justify-content-center align-items-center m-0 px-2">
+                        <li><a href="#"><i class="fa-solid fa-magnifying-glass px-2"></a></i></li>
+                        <li><a href="#"><i class="fa-solid fa-paperclip px-2"></a></i></li>
+                        <li><a href="#"><i class="fa-solid fa-ellipsis-vertical px-2"></a></i></li>
+                    </ul>
                 </div>
                 
                 
                 <!-- area dei messaggi -->
-                <div class="main-area-messages container d-flex flex-column gap-2">
+                <div class="main-area-messages container d-flex flex-column gap-2 py-4">
+                    
                     <!-- SIMULAZIONE CHAT -->
-
-                    <!-- miei messaggi -->
-
-                    <!-- QUESTO DIV è unico per i tuoi messaggi e quello dell'altro utente -->
                     <div class="message d-flex flex-column"
-                    v-for="message in contacts[chatInProgress].messages"
+                    v-for="(message, index) in contacts[chatInProgress].messages"
                     :class="message.status + '-message'">
                         <a href="#" @click="showMenu = !showMenu"><i class="fa-solid fa-chevron-down " 
                             :class="{arrowChange: showMenu}"></i></a>
@@ -147,7 +142,7 @@
                             <a href="#"><li>Modifica</li></a>
                             <a href="#"><li>Pianifica risposta</li></a>
                             <a href="#"><li>Inoltra</li></a>
-                            <a href="#"><li>Cancella Messaggio</li></a>
+                            <a href="#" @click="deleteMessage(index)"><li>Cancella Messaggio</li></a>
                         </ul>
                     </div>
                 </div>
@@ -155,7 +150,7 @@
                 <!-- Area di digitazione -->
                 <div class="main-area-input d-flex justify-content-around align-items-center px-1">
                     <div><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
-                        <input type="text" class="input-area px-3 col-9" placeholder="Scrivi un messaggio"
+                        <input type="text" class="input-area px-3 col-9 lead m-0" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMessage" v-model="myText">
                     <div><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
