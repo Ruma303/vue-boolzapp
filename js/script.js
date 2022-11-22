@@ -143,11 +143,10 @@ const app = new Vue ({
             return luxon.DateTime.now().toFormat('dd/MM/yyyy HH:mm:ss');
          }, 
          searchContacts(nameOfUser){
-            return nameOfUser.toLowerCase().includes(this.search);
+            return nameOfUser.toLowerCase().trim().includes(this.search.trim().toLowerCase());
          },
          deleteMessage(index){ //cancello i messaggi 
             this.contacts[this.chatInProgress].messages.splice(index, 1);
-            //PROBLEMA: IL PRIMO MESSAGGIO NON ME LO CANCELLA
          }
      },
  });

@@ -87,13 +87,13 @@
                                 <!-- Nome tizio -->
                                 <span class="name-profile">{{user.name}}</span>
                                 <!-- Ultimo messaggio tizio -->
-                                <span class="last-message">{{user.messages[user.messages.length-1].message}}</span>
+                                <span class="last-message">{{user.messages.length ? user.messages[user.messages.length-1].message : ''}}</span>
                             </div>
                         </li>
 
                         <li class="profile-div-rt col-4 justify-content-end px-0">
                             <!-- inserire la data e orario -->
-                            <div class="last-seen d-flex justify-content-end align-items-start m-0 px-0">{{user.messages[user.messages.length-1].date}}</div>
+                            <div class="last-seen d-flex justify-content-end align-items-start m-0 px-0">{{user.messages.length ? user.messages[user.messages.length-1].date : ''}}</div>
                         </li>
                     </ul>
                 </div>
