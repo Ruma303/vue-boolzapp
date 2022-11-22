@@ -96,7 +96,7 @@
                             <div class="last-seen d-flex justify-content-end align-items-start m-0 px-0">{{user.messages.length ? user.messages[user.messages.length-1].date : ''}}</div>
                         </li>
                     </ul>
-                </div>
+                </div> 
             </div>
 
             <!-- container dei messaggi -->
@@ -112,7 +112,7 @@
                             <!-- Nome tizio -->
                             <span class="name-profile">{{contacts[chatInProgress].name}}</span>
                             <!-- Ultimo messaggio tizio -->
-                            <span class="last-message">Ultimo accesso {{contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date}}</span>
+                            <span class="last-message">Ultimo accesso {{ contacts[chatInProgress].messages.length ? contacts[chatInProgress].messages[contacts[chatInProgress].messages.length-1].date : ''}}</span>
                             
                         </li>
                     </ul>

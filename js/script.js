@@ -129,7 +129,7 @@ const app = new Vue ({
              });
              this.myText = ''; //reset dell'input dopo l'invio;
 
-             //risposta dell'altro utente.
+             //risposta dell'altro utente. 
              const actualIndex = this.chatInProgress; //conserva l'info dell'utente
              setTimeout(() =>{
                  this.contacts[actualIndex].messages.push({
