@@ -107,6 +107,8 @@ main {
 
 .input-search{
     font-size: .7rem;
+    font-weight: 500;
+    padding-left: .5rem ;
 }
 
 .search-area {
