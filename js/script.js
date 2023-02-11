@@ -114,9 +114,9 @@ const app = new Vue ({
                  ],
              },
          ], chatInProgress: 0, //indice per selezionare un utente specifico
-         myText: '', //variabile per cosa scrivo io
-         search: '', //var per ricerca utenti
-         showMenu: '', //per mostrare o meno il menu a tendina
+        myText: '', //variabile per cosa scrivo io
+        search: '', //var per ricerca utenti
+        showMenu: 0, //per mostrare o meno il menu a tendina
      }, methods: {
          selectUser(i) {//seleziona utenti al click
              this.chatInProgress = i;
